@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width":100,
+  "height": 100,
+
+
+  "view": {"stroke":" #28282B"},
+  "params": [
+    { "name": "time_param", "value": 0.03}
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/Frenchy387/Assignment/main/Waffle%20Chart.csv"
+  },
+  "mark": {
+    "type": "circle"
+  },
+  "encoding": {
+    "x": {
+      "field": "Column",
+      "type": "quantitative",
+      "axis":null
+    },
+    "y": {
+      "field": "Row",
+      "type": "quantitative",
+      "axis":null
+    },
+
+    "size":{ "value": 50
+
+    },
+
+    "color": {
+      "condition": [
+        {
+          "test": "datum['Percent'] <= time_param",
+          "value": {
+            "expr": "'#253494'"
+          }
+        }
+      ],
+      "value": {"expr": "'#969696'"}
+    }
+  },
+  "config": {
+    "background":" #28282B"
+  
+}
+}

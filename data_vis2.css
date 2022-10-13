@@ -1,0 +1,97 @@
+/* CSS FILE */
+
+/* BackGround Color */
+html, body {
+    background-color: #28282B;
+}
+
+
+
+
+/* Title Colour */
+
+#Main_Title {
+    color: white;
+    text-align: center;
+}
+
+/* Grid Top Bottom*/
+
+
+.grid_topbottom > div{
+    /*background: #eee; */
+    padding: 1em;
+
+}
+
+
+
+/*
+.grid_topbottom > div:nth-child(odd){
+    background: #ddd
+}
+*/
+
+
+
+.grid_topbottom{
+    display:grid;
+    grid-template-columns: repeat(7,1fr);
+    height: 50;
+    
+}
+
+/* Grid Middle*/
+
+/*
+.grid_middle > div{
+    background: #eee;
+    padding: 1em;
+}
+*/
+
+/*
+.grid_middle > div:nth-child(odd){
+    background: #ddd
+}
+*/
+
+.grid_middle{
+    display:grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    
+}
+
+/* Nested Middle*/
+
+/*
+.nested > div{
+    background: #eee;
+    
+}
+*/
+
+/*
+.nested > div:nth-child(odd){
+    background: #ddd
+}
+*/
+
+.nested{
+    display:grid;
+    grid-template-rows: repeat(5,1fr);
+    grid-row-gap: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+.vis-container {
+    text-align: center;
+    width: 100%;
+    height: 50;
+}
+
+.Middle_Info {
+    text-align: center;
+    color: #e9e0c9;
+}

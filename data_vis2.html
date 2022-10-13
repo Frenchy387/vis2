@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> FIT3179 DATAVISULISATION 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
+    <link rel = "StyleSheet" href = "data_vis2.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div class = "grid_topbottom">
+        <div id="waffle1" class="vis-container"></div>
+        <div id="waffle2" class="vis-container"></div>
+        <div id="waffle3" class="vis-container"></div>
+        <div id="waffle4" class="vis-container"></div>
+        <div id="waffle5" class="vis-container"></div>
+        <div id="waffle6" class="vis-container"></div>
+        <div id="waffle7" class="vis-container"></div>
+    </div>
+
+    <div class = "grid_middle">
+        <div class = "nested"> 
+            <div id="waffle24" class="vis-container"></div>
+            <div id="waffle23" class="vis-container"></div>
+            <div id="waffle22" class="vis-container"></div>
+            <div id="waffle21" class="vis-container"></div>
+            <div id="waffle20" class="vis-container"></div>                
+        </div>
+
+        <div class = "Middle_Info"> 
+            <h1> Patterns in US Car Crashes </h1>
+            <div id = "choro" class = "vis-container"></div>
+            <div> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias placeat beatae architecto debitis atque corrupti minus ab quis tempora, accusantium assumenda animi aspernatur pariatur molestias. Sint velit, porro necessitatibus nobis molestiae voluptatibus numquam harum, non officia iste mollitia delectus omnis esse ea itaque eos. Tempore numquam sed dolores quasi soluta repellat ea rerum id, error labore cum perferendis quaerat a accusamus omnis est laborum maxime neque! Reprehenderit, officia? Modi ab repellendus totam commodi incidunt, quaerat pariatur ea sunt molestiae tempora laborum et earum soluta nobis eligendi, tenetur dolorum tempore fuga, consequuntur qui! Non sapiente sit officia nihil asperiores nobis ex mollitia optio ea unde ut eligendi perspiciatis qui necessitatibus doloremque amet, explicabo, ipsam temporibus. Provident minima eligendi architecto, consequuntur necessitatibus aliquid repudiandae quidem nostrum impedit obcaecati quas sint assumenda eum consectetur asperiores recusandae, ducimus sit. Consequuntur pariatur delectus sit doloremque, eligendi vel quidem aliquid. Deleniti aliquid magnam voluptas ea vel nostrum deserunt repellat at. Voluptate delectus distinctio voluptas quisquam, nobis aliquam assumenda earum tempore recusandae quae quos? Cum magni quod asperiores reprehenderit repellendus cupiditate nulla doloribus error. Magnam libero, voluptatibus commodi amet obcaecati est velit, voluptate odio, molestiae consectetur veritatis. Officiis odit, voluptatibus sunt vitae corrupti voluptatum modi autem molestiae.</div>
+
+        </div>
+
+        <div class = "nested"> 
+            <div id="waffle8" class="vis-container"></div>
+            <div id="waffle9" class="vis-container"></div>
+            <div id="waffle10" class="vis-container"></div>
+            <div id="waffle11" class="vis-container"></div>
+            <div id="waffle12" class="vis-container"></div>                
+        </div>
+    </div>
+    
+    <div class = "grid_topbottom">
+        <div id="waffle19" class="vis-container"></div>
+        <div id="waffle18" class="vis-container"></div>
+        <div id="waffle17" class="vis-container"></div>
+        <div id="waffle16" class="vis-container"></div>
+        <div id="waffle15" class="vis-container"></div>
+        <div id="waffle14" class="vis-container"></div>
+        <div id="waffle13" class="vis-container"></div>
+    </div>
+
+    <script type="text/javascript">
+        var spec1 = "1am.vg.json";
+        var spec2 = "2am.vg.json"
+        var spec3 = "3am.vg.json";
+        var spec4 = "4am.vg.json"
+        var spec5 = "5am.vg.json";
+        var spec6 = "6am.vg.json";
+        var spec7 = "7am.vg.json";
+        var spec8 = "8am.vg.json"
+        var spec9 = "9am.vg.json";
+        var spec10 = "10am.vg.json"
+        var spec11 = "11am.vg.json";
+        var spec12 = "12am.vg.json";
+        var spec13 = "1pm.vg.json";
+        var spec14 = "2pm.vg.json"
+        var spec15 = "3pm.vg.json";
+        var spec16 = "4pm.vg.json"
+        var spec17 = "5pm.vg.json";
+        var spec18 = "6pm.vg.json";
+        var spec19 = "7pm.vg.json";
+        var spec20 = "8pm.vg.json"
+        var spec21 = "9pm.vg.json";
+        var spec22 = "10pm.vg.json"
+        var spec23 = "11pm.vg.json";
+        var spec24 = "12pm.vg.json";
+        var spec25 = "choro_fiilt.vg.json";
+        
+
+        vegaEmbed('#waffle1', spec1, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle2', spec2, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle3', spec3, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle4', spec4, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        
+        vegaEmbed('#waffle5', spec5, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle6', spec6, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle7', spec7, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle8', spec8, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        
+        vegaEmbed('#waffle9', spec9, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle10', spec10, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle11', spec11, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle12', spec12, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        vegaEmbed('#waffle13', spec13, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle14', spec14, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle15', spec15, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle16', spec16, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        
+        vegaEmbed('#waffle17', spec17, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle18', spec18, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle19', spec19, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle20', spec20, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        
+        vegaEmbed('#waffle21', spec21, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle22', spec22, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle23', spec23, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#waffle24', spec24, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#choro', spec25, { "actions": false }).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+
+    </script>
+        
+</body>
+</html>

@@ -1,0 +1,79 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "autosize": {"resize": true},
+    
+    "data": {
+      "url": "https://raw.githubusercontent.com/Frenchy387/FIT3179/main/HW10/csv/test5.csv"
+    },
+    "transform": [
+      {
+        "lookup": "State",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/Frenchy387/FIT3179/main/ne_110m_admin_1_states_provinces.json",
+            "format": {
+              "type": "topojson",
+              "feature": "ne_110m_admin_1_states_provinces"
+            }
+          },
+          "key": "properties.postal"
+        },
+        "as": "geo"
+      },
+       {
+              "calculate": "datum.Number/datum.Cars", "as": "Crashes Per Registered Car"
+              },
+          {
+              "calculate": "datum.Number", "as": "Number of Crashes"},
+              {
+              "calculate": "datum.Cars", "as": "Number of Cars"}
+    ],
+    "vconcat": [
+      {
+        "title": "US Car Crashes Per Registered Car (2016-2021)",
+        "width": 800,
+        "height": 400,
+        "projection": {"type": "albersUsa"},
+        "params": [{"name": "stateSelection", "select": {"type": "point"}}],
+        "mark": {"type": "geoshape","stroke":  "#28282B"},
+        "encoding": {
+          "shape": {"field": "geo", "type": "geojson"},
+          "color": {
+              "field": "Crashes Per Registered Car",
+              "type": "quantitative",
+              "scale": { "type": "linear"},
+              "legend": {"format": ".2"}
+          },
+                "tooltip": [
+          {"field": "State", "type": "nominal", "title": "State"},
+          {"field": "Crashes Per Registered Car","format": ",.2", "type": "quantitative", "title": "Crashes Per Registered Car" }
+          ,
+          {"field": "Number of Crashes", "type": "quantitative", "title": "Number of Crashes", "format": ","}
+          ,
+          {"field": "Number of Cars", "type": "quantitative", "title": "Registered Cars","format": "," }
+      ]
+        }
+      },
+      {
+        "width": 50,
+        "transform": [{"filter": {"param": "stateSelection","empty": false}},
+        {"fold":["Amenity","Bump","Crossing","Junction","Give_Way","No_Exit","Railway","Roundabout","Station","Stop","Traffic_Calming","Traffic_Signal"]}
+        ],
+        "mark": {"type": "bar","fill":"#253494","stroke":  "#28282B"},
+        "encoding": {
+            "column": {"field": "key", "type": "nominal","title":null},
+          "x": {"field": "State", "type": "nominal", "title": null},
+          "y": {"field": "value", "type": "quantitative", "title":"Number Of Crashes"},
+
+          "tooltip": [
+            {"field": "key", "type": "nominal","title":"Cause Of Accident"},
+            {"field": "value", "type": "quantitative", "title": "Number of Crashes", "format": ","}
+          ]
+        }
+      }
+    ],
+    "config": {
+      "background":" #28282B",
+      "view": {"stroke":" #28282B"}
+    }
+  }
