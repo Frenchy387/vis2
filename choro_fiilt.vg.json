@@ -10,7 +10,7 @@
         "lookup": "State",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/Frenchy387/FIT3179/main/ne_110m_admin_1_states_provinces.json",
+            "url": "https://raw.githubusercontent.com/Frenchy387/FIT3179/main/HW9/JS/ne_110m_admin_1_states_provinces.json",
             "format": {
               "type": "topojson",
               "feature": "ne_110m_admin_1_states_provinces"
@@ -42,7 +42,10 @@
               "field": "Crashes Per Registered Car",
               "type": "quantitative",
               "scale": { "type": "linear"},
-              "legend": {"format": ".2"}
+              "legend": {
+                "format": ".2",
+                "orient": "top"
+              }
           },
                 "tooltip": [
           {"field": "State", "type": "nominal", "title": "State"},
@@ -73,7 +76,7 @@
       }
     ],
     "config": {
-      "background":" #28282B",
+      "background":" #D7FF9E",
       "view": {"stroke":" #28282B"}
     }
   }
