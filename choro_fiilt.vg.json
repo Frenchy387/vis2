@@ -3,7 +3,7 @@
     "autosize": {"resize": true},
     
     "data": {
-      "url": "https://raw.githubusercontent.com/Frenchy387/FIT3179/main/HW10/csv/test5.csv"
+      "url": "https://raw.githubusercontent.com/Frenchy387/vis2/main/Code/test5.csv"
     },
     "transform": [
       {
