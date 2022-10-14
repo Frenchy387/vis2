@@ -1,0 +1,8 @@
+COUNTY CODES
+https://github.com/kjhealy/fips-codes/blob/master/state_and_county_fips_master.csv
+
+County POP
+https://library.duke.edu/data/sources/popest
+
+County Shape File
+https://public.opendatasoft.com/explore/dataset/us-county-boundaries/export/?disjunctive.statefp&disjunctive.countyfp&disjunctive.name&disjunctive.namelsad&disjunctive.stusab&disjunctive.state_name
