@@ -1,0 +1,188 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {"resize": true},
+  "data": {
+    "url": "https://raw.githubusercontent.com/Frenchy387/vis2/main/Code/test5.csv"
+  },
+  "transform": [
+    {
+      "lookup": "State",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Frenchy387/FIT3179/main/HW9/JS/ne_110m_admin_1_states_provinces.json",
+          "format": {
+            "type": "topojson",
+            "feature": "ne_110m_admin_1_states_provinces"
+          }
+        },
+        "key": "properties.postal"
+      },
+      "as": "geo"
+    },
+    {
+      "calculate": "datum.Number/datum.Cars",
+      "as": "Crashes Per Registered Car"
+    },
+    {"calculate": "datum.Number", "as": "Number of Crashes"},
+    {"calculate": "datum.Cars", "as": "Number of Cars"}
+  ],
+  "vconcat": [
+    {
+      "width": 800,
+      "height": 400,
+      "layer": [
+        {
+          "title": "US Car Crashes Per Registered Car (2016-2021)",
+          "projection": {"type": "albersUsa"},
+          "params": [{"name": "stateSelection", "select": {"type": "point"}}],
+          "mark": {"type": "geoshape", "stroke": "grey"},
+          "encoding": {
+            "shape": {"field": "geo", "type": "geojson"},
+            "color": {
+              "field": "Crashes Per Registered Car",
+              "type": "quantitative",
+              "scale": {"type": "linear"},
+              "legend": {"format": ".2", "orient": "top"}
+            },
+            "tooltip": [
+              {"field": "Name", "type": "nominal", "title": "State"},
+              {"field": "State", "type": "nominal", "title": "State Code"},
+              {
+                "field": "Crashes Per Registered Car",
+                "format": ",.2",
+                "type": "quantitative",
+                "title": "Crashes Per Registered Car"
+              },
+              {
+                "field": "Number of Crashes",
+                "type": "quantitative",
+                "title": "Number of Crashes",
+                "format": ","
+              },
+              {
+                "field": "Number of Cars",
+                "type": "quantitative",
+                "title": "Registered Cars",
+                "format": ","
+              }
+            ]
+          }
+        },
+        {
+          "projection": {"type": "albersUsa"},
+          "transform": [
+            {"filter": {"param": "stateSelection", "empty": false}}
+          ],
+          "mark": {"type": "geoshape", "stroke": "black"},
+          "encoding": {
+            "shape": {"field": "geo", "type": "geojson"},
+            "color": {
+              "field": "Crashes Per Registered Car",
+              "type": "quantitative",
+              "scale": {"type": "linear"}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "text", "fontSize": 20},
+      "transform": [
+        {
+          "filter": {
+            "or": [
+              {
+                "and": [
+                  {"field": "State", "equal": "CA"},
+                  {"param": "stateSelection", "valid": true}
+                ]
+              },
+              {"param": "stateSelection", "empty": false}
+            ]
+          }
+        }
+      ],
+      "encoding": {"text": {"field": "Name", "type": "nominal"}}
+    },
+    {
+      "width": 50,
+      "transform": [
+        {
+          "filter": {
+            "or": [
+              {
+                "and": [
+                  {"field": "State", "equal": "CA"},
+                  {"param": "stateSelection", "valid": true}
+                ]
+              },
+              {"param": "stateSelection", "empty": false}
+            ]
+          }
+        },
+        {
+          "fold": [
+            "Amenity",
+            "Bump",
+            "Crossing",
+            "Junction",
+            "Give Way",
+            "No Exit",
+            "Railway",
+            "Roundabout",
+            "Station",
+            "Stop",
+            "Traffic Calming",
+            "Traffic Signal"
+          ]
+        },
+        
+      ],
+      "layer":[
+        {
+      "mark": {"type": "bar", "fill": "#253494", "stroke": "#28282B"},
+      "encoding": {
+        "column": {"field": "key", "type": "nominal", "title": null},
+        "x": {"field": "State", "type": "nominal", "title": null},
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Number Of Crashes"
+        },
+        "tooltip": [
+          {"field": "key", "type": "nominal", "title": "Cause Of Accident"},
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Number of Crashes",
+            "format": ","
+          }
+        ]
+      }
+        },
+        {
+          "transform": [
+            
+            { "window": [{"op": "rank", "as": "ranking"}],
+            "sort": [{"field": "value", "order": "descending"}]},
+            {"filter": "datum.ranking ==1"},
+            {"calculate": "'The largest cause of accident is' + datum['key']", "as": "text_annotation_raw"}],
+            "mark": {
+              "type": "text"
+            },
+            "encoding": {"text":{"field":"text_annotation_raw"}}
+
+            }
+          ]
+        }
+      ]
+    ,
+  "config": {"background": "  #edf8e9", "view": {"stroke": "  #edf8e9"}, "font": "Play","title": {
+    "fontSize": 16},"axis": {"domain": false,"titleFontSize": 13 }, "style": {
+      "guide-label": {
+            "fontSize": 11,
+            "fontStyle": "italic"
+        }
+    }, "legend" :{"titleFontSize":13}
+  }
+}
